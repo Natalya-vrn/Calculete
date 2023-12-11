@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const display = document.getElementById ('display'); // вывожу все на дисплей
-    let Input = '';// ввела переменую, которая хранить все , что вводится 
+    let Input = '';
+    // ввела переменую, которая хранить все , что вводится 
 // добавила событие на работу калькулятора, после загрузки документа в Дом
 
     document.querySelectorAll('.btn').forEach(button => {
@@ -9,13 +10,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function handleButtonClick(value) {// далее описываем соотвественно функции на основые кнопки управления через если..по аналогии в лекцией
         if (value === 'AC') {
-            clearDisplay();
+            clearDisplay();//обнуление
         } else if (value === '&larr') {
-            deleteLastCharacter();
+            deleteLastCharacter();//очистка 
         } else if (value === '=') {
             calculateResult();
         } else {
-            appendToDisplay(value);
+            appendToDisplay(value);// символ к текущему вводу
         }
     }
 //указываем как выставляются значения для работы функции основных команд С, стереть, результат
@@ -24,17 +25,17 @@ document.addEventListener('DOMContentLoaded', function () {
         display.value = Input;
     }
 
-    function clearDisplay() {
+    function clearDisplay() {// ф-ция очистки
         Input = '';
         display.value = '';
     }
 
-    function deleteLastCharacter() {
+    function deleteLastCharacter() {// ф-ция минус один знак
         Input = Input.slice(0, -1);
         display.value = Input;
     }
 
-    function calculateResult() {
+    function calculateResult() {// ф-ция вывода на дисплей
         try {
             Input = eval(Input);
             display.value = Input;
